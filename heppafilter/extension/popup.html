@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heppafilter</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      width: 320px;
+      background: #0f172a;
+      color: #f1f5f9;
+    }
+    .header {
+      background: #1e293b;
+      padding: 16px 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid #334155;
+    }
+    .logo { font-size: 22px; }
+    .title { font-size: 15px; font-weight: 600; color: #f1f5f9; }
+    .subtitle { font-size: 11px; color: #94a3b8; margin-top: 1px; }
+
+    .result-card {
+      margin: 14px;
+      border-radius: 10px;
+      padding: 16px;
+      border: 1px solid #334155;
+    }
+    .result-label {
+      font-size: 20px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 6px;
+    }
+    .risk-badge {
+      text-align: center;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      display: inline-block;
+      margin: 0 auto 12px;
+    }
+    .confidence-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #94a3b8;
+      margin-bottom: 10px;
+    }
+    .progress-bar {
+      height: 5px;
+      border-radius: 3px;
+      background: #334155;
+      overflow: hidden;
+      margin-bottom: 14px;
+    }
+    .progress-fill { height: 100%; border-radius: 3px; transition: width 0.4s ease; }
+
+    .signals-list { margin-top: 8px; }
+    .signal-item {
+      font-size: 11px;
+      color: #fbbf24;
+      padding: 3px 0;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .mitre-tag {
+      margin-top: 10px;
+      font-size: 10px;
+      color: #60a5fa;
+      background: #1e3a5f;
+      padding: 3px 8px;
+      border-radius: 4px;
+      display: inline-block;
+    }
+    .url-display {
+      font-size: 10px;
+      color: #64748b;
+      word-break: break-all;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid #334155;
+    }
+    .manual-section { padding: 0 14px 14px; }
+    .input-row { display: flex; gap: 6px; }
+    input[type="text"] {
+      flex: 1;
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 6px;
+      color: #f1f5f9;
+      font-size: 12px;
+      padding: 7px 10px;
+      outline: none;
+    }
+    input[type="text"]:focus { border-color: #3b82f6; }
+    button {
+      background: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 7px 12px;
+      cursor: pointer;
+    }
+    button:hover { background: #2563eb; }
+    .loading { text-align: center; padding: 24px; color: #64748b; font-size: 13px; }
+    .api-offline {
+      margin: 14px;
+      background: #1c1917;
+      border: 1px solid #44403c;
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+      font-size: 12px;
+      color: #a8a29e;
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="logo">🛡</span>
+  <div>
+    <div class="title">Heppafilter</div>
+    <div class="subtitle">ML Phishing Detector · MITRE ATT&CK T1566</div>
+  </div>
+</div>
+
+<div id="main">
+  <div class="loading">Analysing current page...</div>
+</div>
+
+<div class="manual-section">
+  <div class="input-row">
+    <input type="text" id="manual-url" placeholder="Check any URL...">
+    <button id="check-btn">Check</button>
+  </div>
+</div>
+
+<script src="popup.js"></script>
+</body>
+</html>
